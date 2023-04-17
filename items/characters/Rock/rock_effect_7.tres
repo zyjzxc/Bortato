@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 key = "accum_speed"
 text_key = ""
-value = 15
+value = 25
 custom_key = "temp_stats_while_moving"
 storage_method = 0
 effect_sign = 3
