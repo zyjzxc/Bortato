@@ -6,7 +6,8 @@ const MYMOD_LOG = "Jay-Bortato" # ! Change `MODNAME` to your actual mod's name
 var value_safely_moving_boosted = {}
 const _accum_keys = [
 		["accum_explosion_size", "explosion_size"],
-		[ "accum_speed", "stat_speed"]
+		["accum_speed", "stat_speed"],
+		["accum_stat_armor", "stat_armor"]
 		]
 
 var _not_auto_tmp_stats = ["percent_materials"]
