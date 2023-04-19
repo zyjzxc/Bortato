@@ -1,6 +1,14 @@
 extends "res://projectiles//player_explosion.gd"
 
+func _ready():
+	._ready()
+	_hitbox.monitoring = true
+	_hitbox.collision_mask = 0b10000
+	_hitbox.connect("area_entered",self,"_on_Hitbox_area_entered")
 
+func _on_Hitbox_area_entered(area):
+	if area.get_parent().name.count("EnemyProjectile"):
+		area.get_parent().set_to_be_destroyed()
 
 func set_area(p_area:float)->void :
 	# calculate area in function explode.
