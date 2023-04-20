@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://items/global/effect.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Jay-Bortato/effect/custom_effect.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
-key = "stat_armor"
+key = ""
 text_key = ""
-value = 10
-custom_key = ""
+value = 1
+custom_key = "enemy_spawn_num"
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
