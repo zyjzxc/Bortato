@@ -1,13 +1,14 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://mods-unpacked/Jay-Bortato/effect/custom_effect.gd" type="Script" id=1]
+[ext_resource path="res://effects/items/stat_with_max_effect.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
-key = ""
+key = "accum_explosion_size"
 text_key = ""
-value = 1
-custom_key = "enemy_spawn_num"
+value = 35
+custom_key = "temp_stats_while_moving"
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
+max_value = 0

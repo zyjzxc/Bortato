@@ -20,11 +20,13 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "ui/menus/run/weapon_selection.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/weapon_service.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
+	modLoader.install_script_extension(ext_dir + "singletons/text.gd")
 	modLoader.install_script_extension(ext_dir + "projectiles/player_explosion.gd")
-	modLoader.install_script_extension(ext_dir + "entities/units/enemies/016/16.gd")
+	
 
 	# Add translations
-	# modLoader.add_translation_from_resource(trans_dir + "translations/modname_text.en.translation")
+	modLoader.add_translation_from_resource(trans_dir + "bortato_text.en.translation")
+	modLoader.add_translation_from_resource(trans_dir + "bortato_text.zh.translation")
 
 func _add_my_items()->void: # ! `void` means it doesn't return anything
 	var BorItemService = load(dir + "/singletons/bor_item_service.tscn").instance()

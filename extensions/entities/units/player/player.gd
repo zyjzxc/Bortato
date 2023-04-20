@@ -4,33 +4,25 @@ const MYMOD_LOG = "Jay-Bortato" # ! Change `MODNAME` to your actual mod's name
 
 
 var value_safely_moving_boosted = {}
-const _accum_keys = [
-		["accum_explosion_size", "explosion_size"],
-		["accum_speed", "stat_speed"],
-		["accum_stat_armor", "stat_armor"]
-		]
 
 var _not_auto_tmp_stats = ["percent_materials"]
 
-# Called when the node enters the scene tree for the first time.
-func _init():
-	for keys in _accum_keys:
-		_not_auto_tmp_stats.append(keys[0])
-	
+func _is_special_tmp_status(stat:String)->bool:
+	return _not_auto_tmp_stats.has(stat) or stat.begins_with("accum_")
+
 func _on_MovingTimer_timeout()->void :
 	._on_MovingTimer_timeout()
 	handle_timer_stat("temp_stats_while_moving")
 
 func handle_timer_stat(effect_key:String)->void :
 	for temp_stat in RunData.effects[effect_key]:
-		for keys in _accum_keys:
-			var accum_key = keys[0]
-			var stat_key = keys[1]
-			if temp_stat[0] == accum_key:
-				if not value_safely_moving_boosted.has(stat_key):
-					value_safely_moving_boosted[stat_key] = 0
-				value_safely_moving_boosted[stat_key] += temp_stat[1]
-				TempStats.add_stat(stat_key, temp_stat[1])
+		if temp_stat[0].begins_with("accum_"):
+			var stat_key = temp_stat[0]
+			stat_key.erase(0, 6)
+			if not value_safely_moving_boosted.has(stat_key):
+				value_safely_moving_boosted[stat_key] = 0
+			value_safely_moving_boosted[stat_key] += temp_stat[1]
+			TempStats.add_stat(stat_key, temp_stat[1])
 
 
 func check_not_moving_stats(movement:Vector2)->void :
@@ -46,7 +38,7 @@ func check_moving_stats(movement:Vector2)->void :
 		_moving_timer.start()
 		
 		for temp_stat_while_moving in RunData.effects["temp_stats_while_moving"]:
-			if not _not_auto_tmp_stats.has(temp_stat_while_moving[0]):
+			if not _is_special_tmp_status(temp_stat_while_moving[0]):
 				TempStats.add_stat(temp_stat_while_moving[0], temp_stat_while_moving[1])
 		
 		reset_weapons_cd()
@@ -56,20 +48,18 @@ func check_moving_stats(movement:Vector2)->void :
 		_moving_timer.stop()
 		
 		for temp_stat_while_moving in RunData.effects["temp_stats_while_moving"]:
-			if not _not_auto_tmp_stats.has(temp_stat_while_moving[0]):
+			if not _is_special_tmp_status(temp_stat_while_moving[0]):
 				TempStats.remove_stat(temp_stat_while_moving[0], temp_stat_while_moving[1])
 		
 		reset_weapons_cd()
 
 func _remove_safely_moving_bonus()->void:
-	for keys in _accum_keys:
-		var stat_key = keys[1]
-		if value_safely_moving_boosted.has(stat_key) and value_safely_moving_boosted[stat_key] != 0:
+	for stat_key in value_safely_moving_boosted:
+		if value_safely_moving_boosted[stat_key] != 0:
 			TempStats.remove_stat(stat_key, value_safely_moving_boosted[stat_key])
 			value_safely_moving_boosted[stat_key] = 0
 
 func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_applied:bool = true, custom_sound:Resource = null, base_effect_scale:float = 1.0, bypass_invincibility:bool = false)->Array:
-	# var dmg_taken = .take_damage(value, hitbox, dodgeable, armor_applied, custom_sound, base_effect_scale, bypass_invincibility)
 	var dmg_taken = [0, 0]
 	if hitbox and hitbox.is_healing:
 		var _healed = on_healing_effect(value)

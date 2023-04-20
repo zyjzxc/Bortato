@@ -1,0 +1,3 @@
+keys,en,zh
+
+EFFECT_ACCUM_STAT_SPEED, Gain {0} speed per second while moving, 在移动时每秒获取{0}点速度
