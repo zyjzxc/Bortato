@@ -1,7 +1,7 @@
 extends Node
 
-const MOD_DIR = "Jay-Bortato/"
-const MYMODNAME_LOG = "Jay-Bortato"
+const MOD_DIR = "Jay-Rock/"
+const MYMODNAME_LOG = "Jay-Rock"
 
 var dir = ""
 var ext_dir = ""
@@ -31,7 +31,6 @@ func _init(modLoader = ModLoader):
 func _add_my_items()->void: # ! `void` means it doesn't return anything
 	var BorItemService = load(dir + "/singletons/bor_item_service.tscn").instance()
 	ItemService.characters.append_array(BorItemService.characters)
-	pass
 
 func _ready():
 	_add_my_items();

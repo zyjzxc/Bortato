@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://mods-unpacked/Jay-Bortato/singletons/bor_item_service.gd" type="Script" id=1]
-[ext_resource path="res://mods-unpacked/Jay-Bortato/items/characters/Rock/rock_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Jay-Rock/singletons/bor_item_service.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Rock/rock_data.tres" type="Resource" id=2]
 
 [node name="BorItemService" type="Node"]
 script = ExtResource( 1 )

@@ -2,7 +2,7 @@ extends "res://main.gd"
 
 # Brief overview of what the changes in this file do...
 
-const MYMOD_LOG = "Jay-Bortato" # ! Change `MODNAME` to your actual mod's name
+const MYMOD_LOG = "Jay-Rock" # ! Change `MODNAME` to your actual mod's name
 
 var dir = ""
 

@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://mods-unpacked/Jay-Bortato/translations/bortato_text.en.translation", "res://mods-unpacked/Jay-Bortato/translations/bortato_text.zh.translation" ]
+files=[ "res://mods-unpacked/Jay-Rock/translations/bortato_text.en.translation", "res://mods-unpacked/Jay-Rock/translations/bortato_text.zh.translation" ]
 
-source_file="res://mods-unpacked/Jay-Bortato/translations/bortato_text.csv"
-dest_files=[ "res://mods-unpacked/Jay-Bortato/translations/bortato_text.en.translation", "res://mods-unpacked/Jay-Bortato/translations/bortato_text.zh.translation" ]
+source_file="res://mods-unpacked/Jay-Rock/translations/bortato_text.csv"
+dest_files=[ "res://mods-unpacked/Jay-Rock/translations/bortato_text.en.translation", "res://mods-unpacked/Jay-Rock/translations/bortato_text.zh.translation" ]
 
 [params]
 

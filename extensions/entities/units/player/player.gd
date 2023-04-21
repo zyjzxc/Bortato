@@ -1,6 +1,6 @@
 extends "res://entities//units//player//player.gd"
 
-const MYMOD_LOG = "Jay-Bortato" # ! Change `MODNAME` to your actual mod's name
+const MYMOD_LOG = "Jay-Rock" # ! Change `MODNAME` to your actual mod's name
 
 
 var value_safely_moving_boosted = {}

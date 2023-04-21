@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rock_eyes.png-03fd95ab94986b125c5bd7309ba0f051.stex"
+path="res://.import/rock_eyes.png-e7b57357c3b5f8cd27c1a91e4ff38bed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods-unpacked/Jay-Bortato/items/characters/Rock/rock_eyes.png"
-dest_files=[ "res://.import/rock_eyes.png-03fd95ab94986b125c5bd7309ba0f051.stex" ]
+source_file="res://mods-unpacked/Jay-Rock/items/characters/Rock/rock_eyes.png"
+dest_files=[ "res://.import/rock_eyes.png-e7b57357c3b5f8cd27c1a91e4ff38bed.stex" ]
 
 [params]
 
