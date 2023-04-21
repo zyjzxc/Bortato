@@ -14,7 +14,8 @@ func _ready()->void:
 # Adds +/-, eg `stat_max_hp`
 func _bor_add_keys_needing_operator()->void:
 	keys_needing_operator["effect_accum_stat_speed"] = [0]
-
+	keys_needing_operator["effect_accum_stat_armor"] = [0]
+	keys_needing_operator["effect_accum_explosion_size"] = [0]
 
 
 # Adds %, eg `number_of_enemies`
