@@ -67,7 +67,7 @@ func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_a
 		dmg_taken = .take_damage(value, hitbox, dodgeable, armor_applied, custom_sound, base_effect_scale)
 		
 		
-		if dmg_taken[2]:
+		if dmg_taken.size() > 2 and dmg_taken[2]:
 			if RunData.effects["dmg_on_dodge"].size() > 0 and hitbox != null and hitbox.from != null and is_instance_valid(hitbox.from):
 				var total_dmg_to_deal = 0
 				for dmg_on_dodge in RunData.effects["dmg_on_dodge"]:
