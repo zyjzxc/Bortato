@@ -17,7 +17,6 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "main.gd")
 	modLoader.install_script_extension(ext_dir + "entities/units/player/player.gd")
 	modLoader.install_script_extension(ext_dir + "ui/menus/run/character_selection.gd")
-	modLoader.install_script_extension(ext_dir + "ui/menus/run/weapon_selection.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/weapon_service.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/text.gd")

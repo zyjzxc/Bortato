@@ -12,8 +12,9 @@ func _ready():
 
 
 func on_element_pressed(element:InventoryElement)->void :
-	if character_added:
-		return
+#	if character_added:
+#		return
 	.on_element_pressed(element)
 	# fix rock can't get starts item problem.
-	RunData.add_starting_items_and_weapons()
+	if RunData.current_character.starting_weapons.size() == 0:
+		RunData.add_starting_items_and_weapons()
