@@ -3,4 +3,5 @@ EFFECT_ACCUM_STAT_SPEED,Gain {0} speed per second while moving until take damage
 EFFECT_ACCUM_STAT_ARMOR,Gain {0} armor per second while moving until take damage,在移动时每秒获取{0}护甲直至受到伤害
 EFFECT_ACCUM_EXPLOSION_SIZE,Gain {0} explosion size per second while moving until take damage,在移动时每秒获取{0}爆炸范围直至受到伤害
 EFFECT_EXPLOSION_ELIMINATE_BULLETS,Explosion will eliminate the enemy's bullets,爆炸会消除敌人子弹
-CHARACTER_ROCK,Rock,巨石
+CHARACTER_JAY_ROCK,Rock,巨石
+CHARACTER_JAY_FIRE,Fire,野火

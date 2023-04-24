@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "items_price"
+key = "number_of_enemies"
 text_key = ""
-value = 75
+value = 300
 custom_key = ""
 storage_method = 0
 effect_sign = 3

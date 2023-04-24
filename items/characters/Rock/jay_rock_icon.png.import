@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rock_mouth.png-1c20f86023b82f7c646cf5f71cc19a70.stex"
+path="res://.import/jay_rock_icon.png-c98a3898612986f60e4a95d30af87e1b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods-unpacked/Jay-Rock/items/characters/Rock/rock_mouth.png"
-dest_files=[ "res://.import/rock_mouth.png-1c20f86023b82f7c646cf5f71cc19a70.stex" ]
+source_file="res://mods-unpacked/Jay-Rock/items/characters/Rock/jay_rock_icon.png"
+dest_files=[ "res://.import/jay_rock_icon.png-c98a3898612986f60e4a95d30af87e1b.stex" ]
 
 [params]
 

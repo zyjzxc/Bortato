@@ -6,7 +6,7 @@ extends "res://singletons//run_data.gd"
 #	var nb_elites = 0
 #	var possible_elites = ItemService.elites.duplicate()
 #
-#	if current_character != null and ["character_jack", "character_rock"].has(current_character.my_id):# == "character_jack":
+#	if current_character != null and ["character_jack", "character_jay_rock"].has(current_character.my_id):# == "character_jack":
 #		horde_chance = 0.0
 #
 #	if diff < 2:
@@ -23,7 +23,7 @@ extends "res://singletons//run_data.gd"
 #		var type = EliteType.HORDE if randf() < horde_chance else EliteType.ELITE
 #
 #		if i == 1:
-#			if current_character.my_id == "character_rock":
+#			if current_character.my_id == "character_jay_rock":
 #				wave = 14
 #			else:
 #				wave = Utils.get_random_int(base_wave + 4, base_wave + 5)

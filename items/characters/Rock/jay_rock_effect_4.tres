@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Rock/rock_explosion_stats.tres" type="Resource" id=1]
+[ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Rock/jay_rock_explosion_stats.tres" type="Resource" id=1]
 [ext_resource path="res://projectiles/explosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://effects/items/item_exploding_effect.gd" type="Script" id=3]
 
