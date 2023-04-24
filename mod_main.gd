@@ -24,8 +24,8 @@ func _init(modLoader = ModLoader):
 	
 
 	# Add translations
-	modLoader.add_translation_from_resource(trans_dir + "rock_text.en.translation")
-	modLoader.add_translation_from_resource(trans_dir + "rock_text.zh.translation")
+	modLoader.add_translation_from_resource(trans_dir + "jay_text.en.translation")
+	modLoader.add_translation_from_resource(trans_dir + "jay_text.zh.translation")
 
 func _add_my_items()->void: # ! `void` means it doesn't return anything
 	var BorItemService = load(dir + "/singletons/bor_item_service.tscn").instance()
