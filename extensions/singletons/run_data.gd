@@ -40,5 +40,6 @@ func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
 func init_effects()->Dictionary:
 	var all_effects = .init_effects()
 	all_effects["explosion_eliminate_bullets"] = []
+	all_effects["blade_storm"] = []
 	return all_effects
 	
