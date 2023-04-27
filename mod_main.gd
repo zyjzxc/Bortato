@@ -19,9 +19,11 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "ui/menus/run/character_selection.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/weapon_service.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
+	modLoader.install_script_extension(ext_dir + "singletons/menu_data.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/text.gd")
 	modLoader.install_script_extension(ext_dir + "projectiles/player_explosion.gd")
 	modLoader.install_script_extension(ext_dir + "entities/units/player/weapons_container.gd")
+	modLoader.install_script_extension(ext_dir + "singletons/progress_data.gd")
 	
 
 	# Add translations
