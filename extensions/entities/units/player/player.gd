@@ -112,3 +112,6 @@ func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_a
 		_remove_safely_moving_bonus()
 	return dmg_taken
 
+func _physics_process(delta)->void :
+	if RunData.effects["blade_storm"].size() > 0:
+		_weapons_container.rotation += delta
