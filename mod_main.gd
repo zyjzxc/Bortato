@@ -24,6 +24,7 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "projectiles/player_explosion.gd")
 	modLoader.install_script_extension(ext_dir + "entities/units/player/weapons_container.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/progress_data.gd")
+	modLoader.install_script_extension(ext_dir + "entities/units/enemies/enemy.gd")
 	
 
 	# Add translations

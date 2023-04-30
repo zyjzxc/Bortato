@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "weapon_torch_1"
-text_key = "effect_starting_item"
-value = 5
-custom_key = "starting_weapon"
-storage_method = 1
+key = "no_ranged_weapons"
+text_key = "effect_no_ranged_weapons"
+value = 1
+custom_key = ""
+storage_method = 0
 effect_sign = 3
 custom_args = [  ]

@@ -10,7 +10,8 @@ func explode(effect:Effect, pos:Vector2, damage:int, accuracy:float, crit_chance
 	instance.call_deferred("set_damage_tracking_key", damage_tracking_key)
 	instance.call_deferred("set_damage", damage, accuracy, crit_chance, crit_dmg, burning_data, is_healing, ignored_objects)
 	instance.call_deferred("set_smoke_amount", round(effect.scale * effect.base_smoke_amount))
-	# pre calculate area
+	# modified by jay
+	# pre calculate area. 
 	var explosion_scale = max(0.1, effect.scale + (effect.scale * (Utils.get_stat("explosion_size") / 100.0)))
 	instance.call_deferred("set_area", explosion_scale)
 	return instance

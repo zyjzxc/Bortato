@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-key = ""
-text_key = "effect_blade_storm"
-value = 0
-custom_key = "blade_storm"
-storage_method = 1
-effect_sign = 3
+key = "enemy_gold_drops"
+text_key = "effect_enemy_gold_drops"
+value = -50
+custom_key = ""
+storage_method = 0
+effect_sign = 1
 custom_args = [  ]

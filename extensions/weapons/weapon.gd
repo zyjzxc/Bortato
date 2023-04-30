@@ -3,11 +3,26 @@ extends "res://weapons/weapon.gd"
 
 var is_blade_storm:bool
 
+onready var _collision:CollisionShape2D = $Sprite / Hitbox / Collision
+
 func _ready()->void :
 	if RunData.effects["blade_storm"].size() > 0:
 		is_blade_storm = true
-		.enable_hitbox()
-		return
+		if not RunData.bladestorm_weapon_changed.has(weapon_id) or not RunData.bladestorm_weapon_changed[weapon_id]:
+			_collision.shape.extents.x *= 0.5
+			RunData.bladestorm_weapon_changed[weapon_id] = true
+		var offest = _collision.shape.extents.x * 0.5
+		_collision.position.x *= 0.5
+		_collision.position.x += offest
+
+#		_hitbox.monitoring = true
+#		_hitbox.collision_mask = 0b10000
+#		_hitbox.connect("area_entered",self,"_on_Hitbox_area_entered")
+	else:
+		if RunData.bladestorm_weapon_changed.has(weapon_id) and RunData.bladestorm_weapon_changed[weapon_id]:
+			_collision.shape.extents.x *= 2
+			RunData.bladestorm_weapon_changed[weapon_id] = false
+
 	._ready()
 
 func update_sprite_flipv()->void :
@@ -38,7 +53,6 @@ func shoot()->void :
 		return
 	
 
-#func _physics_process(delta:float)->void :
-#	if is_blade_storm:
-#		return
-#	._physics_process(delta)
+func _on_Hitbox_area_entered(area):
+	if area.get_parent().name.count("EnemyProjectile"):
+		area.get_parent().set_to_be_destroyed()

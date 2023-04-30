@@ -7,6 +7,11 @@ var value_safely_moving_boosted = {}
 
 var _not_auto_tmp_stats = ["percent_materials"]
 
+var _storm_duration = 0
+
+var _weapon_enabled = 0
+
+
 func _is_special_tmp_status(stat:String)->bool:
 	return _not_auto_tmp_stats.has(stat) or stat.begins_with("accum_")
 
@@ -107,11 +112,26 @@ func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_a
 			check_hp_regen()
 		
 		# return dmg_taken
-
+	# modified by jay
 	if dmg_taken[1] > 0:
 		_remove_safely_moving_bonus()
 	return dmg_taken
 
 func _physics_process(delta)->void :
-	if RunData.effects["blade_storm"].size() > 0:
-		_weapons_container.rotation += delta
+
+	if RunData.effects["blade_storm"].size() > 0 and current_weapons.size() > 0:
+		_storm_duration = 0.0
+		for weapon in current_weapons:
+			_storm_duration += weapon.current_stats.cooldown
+		_storm_duration *= max( 0.1, current_stats.health * 1.0 / max_stats.health) * 0.07 / current_weapons.size()
+		_storm_duration = max(_storm_duration, 0.017)
+		_weapons_container.rotation += delta / _storm_duration * TAU
+		
+		for weapon in current_weapons:
+			if _weapons_container.rotation > TAU:
+				weapon.disable_hitbox()
+				weapon.enable_hitbox()
+			weapon._hitbox.set_knockback( - Vector2(cos(weapon.global_rotation), sin(weapon.global_rotation)), weapon.current_stats.knockback)
+		
+		if _weapons_container.rotation > TAU:
+				_weapons_container.rotation -= TAU
