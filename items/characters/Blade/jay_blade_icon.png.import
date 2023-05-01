@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blade_hat.png-cac7a90c56c1e54d1992d4b63498173f.stex"
+path="res://.import/jay_blade_icon.png-d4ea99152277bd378977a9e423aa3839.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods-unpacked/Jay-Rock/items/characters/Blade/blade_hat.png"
-dest_files=[ "res://.import/blade_hat.png-cac7a90c56c1e54d1992d4b63498173f.stex" ]
+source_file="res://mods-unpacked/Jay-Rock/items/characters/Blade/jay_blade_icon.png"
+dest_files=[ "res://.import/jay_blade_icon.png-d4ea99152277bd378977a9e423aa3839.stex" ]
 
 [params]
 
