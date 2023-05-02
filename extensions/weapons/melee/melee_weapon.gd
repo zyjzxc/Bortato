@@ -1,4 +1,4 @@
-extends "res://weapons/weapon.gd"
+extends "res://weapons/melee/melee_weapon.gd"
 
 
 var is_blade_storm:bool
