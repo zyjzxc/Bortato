@@ -3,7 +3,11 @@ extends "res://entities/units/player/weapons_container.gd"
 
 func update_weapons_positions(weapons:Array)->void :
 	if RunData.effects["blade_storm"].size() > 0:
-		var attack_range = max(Utils.get_stat("stat_range") * 1.0 / 100 + 1.2, 0.5)
+		var attack_range = 0#max(Utils.get_stat("stat_range") * 1.0 / 100 + 1.2, 0.5)
+		for weapon in weapons:
+			attack_range += weapon.current_stats.max_range
+		attack_range /= weapons.size() * 100.0
+		attack_range = max(attack_range, 0.5)
 		if weapons.size() <= 6:
 			var i2idx = {3:5, 4:3, 5:4}
 			var node_name = "_six_weapons_attachment_%d"
