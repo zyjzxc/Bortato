@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mods-unpacked/Jay-Rock/singletons/bor_item_service.gd" type="Script" id=1]
 [ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Rock/jay_rock_data.tres" type="Resource" id=2]
 [ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Fire/jay_fire_data.tres" type="Resource" id=3]
 [ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Blade/jay_blade_data.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Downpour/jay_downpour_data.tres" type="Resource" id=5]
 
 [node name="BorItemService" type="Node"]
 script = ExtResource( 1 )
-characters = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+characters = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]

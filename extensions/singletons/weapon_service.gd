@@ -19,3 +19,11 @@ func explode(effect:Effect, pos:Vector2, damage:int, accuracy:float, crit_chance
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func init_ranged_stats(from_stats:RangedWeaponStats = RangedWeaponStats.new(), weapon_id:String = "", sets:Array = [], effects:Array = [], is_structure:bool = false)->RangedWeaponStats:
+	var new_stats =.init_ranged_stats(from_stats, weapon_id, sets, effects)
+	if RunData.effects["split_bullet"].size() > 0 and weapon_id != "":
+		new_stats.projectile_spread += 0.5
+		new_stats.nb_projectiles *= 2
+	return new_stats
+	
