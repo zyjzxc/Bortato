@@ -8,7 +8,7 @@ func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
 	var nb_elites = 0
 	var possible_elites = ItemService.elites.duplicate()
 
-	if current_character != null and ["character_jack", "character_jay_fire", "character_jay_rock", "character_jay_blade"].has(current_character.my_id):# == "character_jack":
+	if current_character != null and ["character_jack","character_jay_downpour", "character_jay_fire", "character_jay_rock", "character_jay_blade"].has(current_character.my_id):# == "character_jack":
 		horde_chance = 0.0
 
 	if diff < 2:
