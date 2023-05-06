@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "weapon_revolver_1"
+key = "weapon_minigun_3"
 text_key = "effect_starting_item"
 value = 1
 custom_key = "starting_weapon"
