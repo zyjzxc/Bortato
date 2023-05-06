@@ -24,7 +24,7 @@ func init_ranged_stats(from_stats:RangedWeaponStats = RangedWeaponStats.new(), w
 	var new_stats =.init_ranged_stats(from_stats, weapon_id, sets, effects, is_structure)
 	if RunData.effects["split_bullet"].size() > 0 and weapon_id != "":
 		new_stats.nb_projectiles *= 3
-		new_stats.projectile_spread = 0.5 if new_stats.nb_projectiles == 3 else 1.0
+		new_stats.projectile_spread = 0.5 if new_stats.nb_projectiles <= 3 else 1.0
 		new_stats.damage *= 0.5
 	return new_stats
 	
