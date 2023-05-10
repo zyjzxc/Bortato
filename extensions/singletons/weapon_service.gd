@@ -26,5 +26,7 @@ func init_ranged_stats(from_stats:RangedWeaponStats = RangedWeaponStats.new(), w
 		new_stats.nb_projectiles *= 3
 		new_stats.projectile_spread = 0.5 if new_stats.nb_projectiles <= 3 else 1.0
 		new_stats.damage *= 0.5
+	if RunData.effects["explosive_weapon"].size() > 0 and weapon_id != "":
+		effects.append(RunData.effects["explosive_weapon"][0])
 	return new_stats
 	

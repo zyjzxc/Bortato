@@ -44,5 +44,6 @@ func init_effects()->Dictionary:
 	all_effects["explosion_eliminate_bullets"] = []
 	all_effects["blade_storm"] = []
 	all_effects["split_bullet"] = []
+	all_effects["explosive_weapon"] = []
 	return all_effects
 	
