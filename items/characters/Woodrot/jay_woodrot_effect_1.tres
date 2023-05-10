@@ -1,13 +1,19 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
+[ext_resource path="res://projectiles/explosion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mods-unpacked/Jay-Rock/effects/character_exploding_effect.gd" type="Script" id=2]
 
 [resource]
 script = ExtResource( 2 )
-key = ""
+key = "explosive_weapon"
 text_key = "effect_explosive_weapon"
 value = 0
-custom_key = "explosive_weapon"
-storage_method = 1
+custom_key = ""
+storage_method = 0
 effect_sign = 3
 custom_args = [  ]
+chance = 0.05
+explosion_scene = ExtResource( 1 )
+scale = 1.0
+base_smoke_amount = 40
+sound_db_mod = -10
