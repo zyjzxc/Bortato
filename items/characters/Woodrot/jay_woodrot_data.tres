@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=19 format=2]
+[gd_resource type="Resource" load_steps=20 format=2]
 
 [ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Fire/jay_fire_effect_2.tres" type="Resource" id=1]
 [ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Woodrot/jay_woodrot_effect_1.tres" type="Resource" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://weapons/ranged/shuriken/1/shuriken_data.tres" type="Resource" id=16]
 [ext_resource path="res://weapons/melee/chopper/1/chopper_data.tres" type="Resource" id=17]
 [ext_resource path="res://weapons/melee/pruner/1/pruner_data.tres" type="Resource" id=18]
+[ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Woodrot/jay_woodrot_effect_2.tres" type="Resource" id=19]
 
 [resource]
 script = ExtResource( 4 )
@@ -27,7 +28,7 @@ icon = ExtResource( 8 )
 name = "CHARACTER_JAY_WOODROT"
 tier = 0
 value = 1
-effects = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 15 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 15 ), ExtResource( 2 ), ExtResource( 19 ) ]
 tracking_text = ""
 max_nb = -1
 item_appearances = [ ExtResource( 5 ), ExtResource( 6 ) ]

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 2 )
 key = "explosive_weapon"
-text_key = "effect_explosive_weapon"
+text_key = ""
 value = 0
 custom_key = ""
 storage_method = 0
@@ -14,6 +14,6 @@ effect_sign = 3
 custom_args = [  ]
 chance = 0.25
 explosion_scene = ExtResource( 1 )
-scale = 1.0
-base_smoke_amount = 40
+scale = 1.5
+base_smoke_amount = 5
 sound_db_mod = -10

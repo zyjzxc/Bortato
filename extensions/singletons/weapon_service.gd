@@ -26,13 +26,22 @@ func init_ranged_stats(from_stats:RangedWeaponStats = RangedWeaponStats.new(), w
 		new_stats.nb_projectiles *= 3
 		new_stats.projectile_spread = 0.5 if new_stats.nb_projectiles <= 3 else 1.0
 		new_stats.damage *= 0.5
-	if RunData.effects["explosive_weapon"].size() > 0 and weapon_id != "" and not effects.has(RunData.effects["explosive_weapon"][0]):
-		effects.append(RunData.effects["explosive_weapon"][0])
+	if RunData.effects["explosive_weapon"].size() > 0 and weapon_id != "":
+		var effect = RunData.effects["explosive_weapon"][0]
+		if effect.ranged_effect == null:
+			var ranged_effect = ExplodingEffect.new()
+			ranged_effect.chance = effect.chance * 2
+			ranged_effect.explosion_scene = effect.explosion_scene
+			ranged_effect.base_smoke_amount = effect.base_smoke_amount
+			ranged_effect.sound_db_mod = effect.sound_db_mod
+			effect.ranged_effect = ranged_effect
+		if not effects.has(effect.ranged_effect):
+			effects.append(effect.ranged_effect) 
 	return new_stats
 
 func init_melee_stats(from_stats:MeleeWeaponStats = MeleeWeaponStats.new(), weapon_id:String = "", sets:Array = [], effects:Array = [], is_structure:bool = false)->MeleeWeaponStats:
 	var new_stats =.init_melee_stats(from_stats, weapon_id, sets, effects, is_structure)
-	if RunData.effects["explosive_weapon"].size() > 0 and weapon_id != "" and not effects.has(RunData.effects["explosive_weapon"][0]):
-		effects.append(RunData.effects["explosive_weapon"][0])
+	if RunData.effects["explosive_weapon"].size() > 0 and weapon_id != "" and not effects.has(RunData.effects["explosive_weapon"][0].melee_effect):
+		effects.append(RunData.effects["explosive_weapon"][0].melee_effect)
 	return new_stats
 	
