@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "heal_on_kill"
-text_key = ""
-value = 100
+key = "enemy_gold_drops"
+text_key = "effect_enemy_gold_drops"
+value = -50
 custom_key = ""
 storage_method = 0
-effect_sign = 3
+effect_sign = 1
 custom_args = [  ]

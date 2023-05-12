@@ -2,6 +2,9 @@ extends "res://singletons//run_data.gd"
 
 var bladestorm_weapon_changed = {}
 
+func _init():
+	effect_keys_full_serialization.push_back("explosive_weapon")
+
 func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
 	elites_spawn = []
 	var diff = get_current_difficulty()
@@ -45,5 +48,7 @@ func init_effects()->Dictionary:
 	all_effects["blade_storm"] = []
 	all_effects["split_bullet"] = []
 	all_effects["explosive_weapon"] = []
+	all_effects["heal_on_kill"] = 0
+	all_effects["lose_accum_hp_per_second"] = []
 	return all_effects
 	

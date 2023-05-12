@@ -11,6 +11,17 @@ var _storm_duration = 0
 
 var _weapon_enabled = 0
 
+func _ready():
+	if RunData.effects["lose_accum_hp_per_second"].size() > 0:
+		_lose_health_timer.start()
+
+func _on_LoseHealthTimer_timeout()->void :
+	if RunData.effects["lose_hp_per_second"] > 0:
+		var _dmg_taken = take_damage(RunData.effects["lose_hp_per_second"], null, false, false, null, 1.0, true)
+	if RunData.effects["lose_accum_hp_per_second"].size() > 0:
+		for effect in RunData.effects["lose_accum_hp_per_second"]:
+			var _dmg_taken = take_damage(min(effect[1] * RunData.current_wave, effect[2]), null, false, false, null, 1.0, true)
+
 
 func _is_special_tmp_status(stat:String)->bool:
 	return _not_auto_tmp_stats.has(stat) or stat.begins_with("accum_")
