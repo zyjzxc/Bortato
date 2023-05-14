@@ -26,6 +26,10 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "singletons/progress_data.gd")
 	var new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/weapons/melee/melee_weapon.gd")
 	new_potato.take_over_path("res://weapons/melee/melee_weapon.gd")
+	new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/weapons/ranged/ranged_weapon.gd")
+	new_potato.take_over_path("res://weapons/ranged/ranged_weapon.gd")
+	new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/effects/items/item_exploding_effect.gd")
+	new_potato.take_over_path("res://effects/items/item_exploding_effect.gd")
 #	new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/weapons/ranged/ranged_weapon.gd")
 #	new_potato.take_over_path("res://weapons/ranged/ranged_weapon.gd")
 	

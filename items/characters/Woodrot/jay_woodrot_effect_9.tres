@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource( 1 )
 key = "number_of_enemies"
-text_key = ""
-value = 100
-custom_key = ""
+text_key = "effect_gain_stat_end_of_wave"
+value = 10
+custom_key = "stats_end_of_wave"
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]

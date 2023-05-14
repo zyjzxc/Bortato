@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "number_of_enemies"
+key = "stat_attack_speed"
 text_key = ""
-value = 100
+value = -100
 custom_key = ""
 storage_method = 0
 effect_sign = 3

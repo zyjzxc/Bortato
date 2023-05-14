@@ -6,6 +6,8 @@ const MYMOD_LOG = "Jay-Rock" # ! Change `MODNAME` to your actual mod's name
 
 var dir = ""
 
+var _consumables_pickde_this_wave = 0
+
 # Extensions
 # =============================================================================
 
@@ -24,17 +26,17 @@ func _ready()->void:
 	_modname_my_custom_edit_2()
 
 
-# This is the name of a func in vanilla
-func get_gold_bag_pos()->Vector2:
-	# ! This calls vanilla's version of this func. The period (.) before the
-	# func lets you call it without triggering an infinite loop. In this case,
-	# we're calling the vanilla func to get the original value; then, we can
-	# modify it to whatever we like
-	var gold_bag_pos = .get_gold_bag_pos()
+func _on_EntitySpawner_player_spawned(player:Player)->void :
+	._on_EntitySpawner_player_spawned(player)
+	var _error_buff_effect = RunData.connect("buff_effect", player, "on_buff_effect")
 
-	# ! If a vanilla func returns something (just as this one returns a Vector2),
-	# ! your modded funcs should also return something with the same type
-	return gold_bag_pos
+func on_consumable_picked_up(consumable:Node)->void :
+	.on_consumable_picked_up(consumable)
+	if not _cleaning_up and RunData.effects["buff_pick_up_consumable"].size() > 0:
+		_consumables_pickde_this_wave += 1
+		for effect in RunData.effects["buff_pick_up_consumable"]:
+			var value = max(1, effect[1] / _consumables_pickde_this_wave)
+			RunData.emit_signal("buff_effect", effect[0], effect[1], effect[2])
 
 
 # Custom

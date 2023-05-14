@@ -5,6 +5,8 @@ const MYMOD_LOG = "Jay-Rock" # ! Change `MODNAME` to your actual mod's name
 
 var value_safely_moving_boosted = {}
 
+var value_buff_boosted = {}
+
 var _not_auto_tmp_stats = ["percent_materials"]
 
 var _storm_duration = 0
@@ -28,9 +30,9 @@ func _is_special_tmp_status(stat:String)->bool:
 
 func _on_MovingTimer_timeout()->void :
 	._on_MovingTimer_timeout()
-	handle_timer_stat("temp_stats_while_moving")
+	handle_moving_timer_stat("temp_stats_while_moving")
 
-func handle_timer_stat(effect_key:String)->void :
+func handle_moving_timer_stat(effect_key:String)->void :
 	for temp_stat in RunData.effects[effect_key]:
 		if temp_stat[0].begins_with("accum_"):
 			var stat_key = temp_stat[0]
@@ -146,3 +148,27 @@ func _physics_process(delta)->void :
 		
 		if _weapons_container.rotation > TAU:
 				_weapons_container.rotation -= TAU
+	for stat in value_buff_boosted:
+		var idx_remove = []
+		for idx in value_buff_boosted[stat].size():
+			value_buff_boosted[stat][idx][1] -= delta
+			if value_buff_boosted[stat][idx][1] <= 0:
+				idx_remove.push_back(idx)
+		idx_remove.invert()
+		for i in idx_remove:
+			TempStats.remove_stat(stat, value_buff_boosted[stat][i][0])
+			value_buff_boosted[stat].remove(i)
+
+#func _on_ItemAttractArea_area_entered(area:Area2D)->void :
+#	var is_heal = area is Consumable
+#
+#	if is_heal and current_stats.health >= max_stats.health:
+#		consumables_in_range.push_back(area)
+#	elif not is_heal or (is_heal and current_stats.health < max_stats.health):
+#		area.attracted_by = self
+				
+func on_buff_effect(stat:String, value:int, last:int)->void:
+	if not stat in value_buff_boosted:
+		value_buff_boosted[stat] = []
+	value_buff_boosted[stat].push_back([value, last])
+	TempStats.add_stat(stat, value)

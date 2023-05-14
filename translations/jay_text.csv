@@ -9,3 +9,5 @@ CHARACTER_JAY_FIRE,Fire,野火
 CHARACTER_JAY_BLADE,Blade,剑刃
 CHARACTER_JAY_DOWNPOUR,Downpour,暴雨
 EFFECT_SPLIT_BULLET,Weapon bullets split into three with 50% decreased damage,武器的子弹分裂成三个，伤害降低一半
+CHARACTER_JAY_WOODROT,WoodRot,朽木
+EFFECT_BUFF_PICK_UP_CONSUMABLE,Picking up a consumable increase {1} by {0} lasting {2} seconds,拾取消耗品增加{0}攻速，持续{2}秒

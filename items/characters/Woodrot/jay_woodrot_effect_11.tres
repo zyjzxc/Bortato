@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "number_of_enemies"
-text_key = ""
-value = 100
+key = "trees"
+text_key = "effect_trees"
+value = 10
 custom_key = ""
 storage_method = 0
 effect_sign = 3

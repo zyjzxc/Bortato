@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "number_of_enemies"
-text_key = ""
-value = 100
-custom_key = ""
+key = "item_garden"
+text_key = "effect_starting_item"
+value = 2
+custom_key = "starting_item"
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]

@@ -25,6 +25,12 @@ func _ready()->void :
 
 	._ready()
 
+func init_stats(at_wave_begin:bool = true)->void :
+	.init_stats(at_wave_begin)
+	if not at_wave_begin:
+		_current_cooldown = min(_current_cooldown, current_stats.cooldown)
+
+
 func update_sprite_flipv()->void :
 	if is_blade_storm:
 		return
