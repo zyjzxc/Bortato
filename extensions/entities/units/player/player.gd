@@ -13,9 +13,18 @@ var _storm_duration = 0
 
 var _weapon_enabled = 0
 
+var _explode_on_hit_ex_stats = null
+
 func _ready():
+	if RunData.effects["explode_on_hit_ex"].size() > 0:
+		init_exploding_ex_stats()
 	if RunData.effects["lose_accum_hp_per_second"].size() > 0:
 		_lose_health_timer.start()
+
+func update_player_stats()->void :
+	.update_player_stats()
+	if RunData.effects["explode_on_hit_ex"].size() > 0:
+		init_exploding_ex_stats()
 
 func _on_LoseHealthTimer_timeout()->void :
 	if RunData.effects["lose_hp_per_second"] > 0:
@@ -78,57 +87,18 @@ func _remove_safely_moving_bonus()->void:
 			value_safely_moving_boosted[stat_key] = 0
 
 func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_applied:bool = true, custom_sound:Resource = null, base_effect_scale:float = 1.0, bypass_invincibility:bool = false)->Array:
-	var dmg_taken = [0, 0]
-	if hitbox and hitbox.is_healing:
-		var _healed = on_healing_effect(value)
-	elif _invincibility_timer.is_stopped() or bypass_invincibility:
-		dmg_taken = .take_damage(value, hitbox, dodgeable, armor_applied, custom_sound, base_effect_scale)
-		
-		
-		if dmg_taken.size() > 2 and dmg_taken[2]:
-			if RunData.effects["dmg_on_dodge"].size() > 0 and hitbox != null and hitbox.from != null and is_instance_valid(hitbox.from):
-				var total_dmg_to_deal = 0
-				for dmg_on_dodge in RunData.effects["dmg_on_dodge"]:
-					if randf() >= dmg_on_dodge[2] / 100.0:
-						continue
-					var dmg_from_stat = max(1, (dmg_on_dodge[1] / 100.0) * Utils.get_stat(dmg_on_dodge[0]))
-					var dmg = RunData.get_dmg(dmg_from_stat) as int
-					total_dmg_to_deal += dmg
-				var dmg_dealt = hitbox.from.take_damage(total_dmg_to_deal)
-				RunData.tracked_item_effects["item_riposte"] += dmg_dealt[1]
-			
-			if RunData.effects["heal_on_dodge"].size() > 0:
-				var total_to_heal = 0
-				for heal_on_dodge in RunData.effects["heal_on_dodge"]:
-					if randf() < heal_on_dodge[2] / 100.0:
-						total_to_heal += heal_on_dodge[1]
-				var _healed = on_healing_effect(total_to_heal, "item_adrenaline", false)
-		
-		if dmg_taken[1] > 0 and consumables_in_range.size() > 0:
-			for cons in consumables_in_range:
-				cons.attracted_by = self
-		
-		if dodgeable:
-			disable_hurtbox()
-			_invincibility_timer.start(get_iframes(dmg_taken[1]))
-		
-		if dmg_taken[1] > 0:
-			if RunData.effects["explode_on_hit"].size() > 0:
-				var effect = RunData.effects["explode_on_hit"][0]
-				var stats = _explode_on_hit_stats
-				var _inst = WeaponService.explode(effect, global_position, stats.damage, stats.accuracy, stats.crit_chance, stats.crit_damage, stats.burning_data)
-			
-			if RunData.effects["temp_stats_on_hit"].size() > 0:
-				for temp_stat_on_hit in RunData.effects["temp_stats_on_hit"]:
-					TempStats.add_stat(temp_stat_on_hit[0], temp_stat_on_hit[1])
-			
-			check_hp_regen()
-		
-		# return dmg_taken
+	var dmg_taken = .take_damage(value, hitbox, dodgeable, armor_applied, custom_sound, base_effect_scale, bypass_invincibility)
 	# modified by jay
 	if dmg_taken[1] > 0:
+		if RunData.effects["explode_on_hit_ex"].size() > 0:
+			var effect = RunData.effects["explode_on_hit_ex"][0]
+			var stats = _explode_on_hit_ex_stats
+			var _inst = WeaponService.explode(effect, global_position, stats.damage, stats.accuracy, stats.crit_chance, stats.crit_damage, stats.burning_data)
 		_remove_safely_moving_bonus()
 	return dmg_taken
+	
+func init_exploding_ex_stats()->void :
+	_explode_on_hit_ex_stats = WeaponService.init_base_stats(RunData.effects["explode_on_hit_ex"][0].stats, "", [], [ExplodingEffect.new()])
 
 func _physics_process(delta)->void :
 
