@@ -16,5 +16,5 @@ func on_element_pressed(element:InventoryElement)->void :
 #		return
 	.on_element_pressed(element)
 	# fix rock can't get starts item problem.
-	if RunData.current_character.starting_weapons.size() == 0:
+	if RunData.current_character and RunData.current_character.starting_weapons.size() == 0:
 		RunData.add_starting_items_and_weapons()
