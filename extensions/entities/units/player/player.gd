@@ -35,7 +35,7 @@ func _on_LoseHealthTimer_timeout()->void :
 
 
 func _is_special_tmp_status(stat:String)->bool:
-	return _not_auto_tmp_stats.has(stat) or stat.begins_with("accum_")
+	return _not_auto_tmp_stats.has(stat) or stat.begins_with("running_accum_")
 
 func _on_MovingTimer_timeout()->void :
 	._on_MovingTimer_timeout()
@@ -43,22 +43,16 @@ func _on_MovingTimer_timeout()->void :
 
 func handle_moving_timer_stat(effect_key:String)->void :
 	for temp_stat in RunData.effects[effect_key]:
-		if temp_stat[0].begins_with("accum_"):
+		if temp_stat[0].begins_with("running_accum_"):
 			var stat_key = temp_stat[0]
-			stat_key.erase(0, 6)
+			stat_key.erase(0, "running_accum_".length())
 			if not value_safely_moving_boosted.has(stat_key):
 				value_safely_moving_boosted[stat_key] = 0
 			value_safely_moving_boosted[stat_key] += temp_stat[1]
 			TempStats.add_stat(stat_key, temp_stat[1])
-
-
-func check_not_moving_stats(movement:Vector2)->void :
-	.check_not_moving_stats(movement)
-#	if (movement.x == 0 and movement.y == 0):
-#		_remove_safely_moving_bonus()
+			TempStats.emit_updated()
 
 func check_moving_stats(movement:Vector2)->void :
-	
 	if not moving_bonuses_applied and RunData.effects["temp_stats_while_moving"].size() > 0 and (movement.x != 0 or movement.y != 0):
 		moving_bonuses_applied = true
 		
@@ -67,6 +61,7 @@ func check_moving_stats(movement:Vector2)->void :
 		for temp_stat_while_moving in RunData.effects["temp_stats_while_moving"]:
 			if not _is_special_tmp_status(temp_stat_while_moving[0]):
 				TempStats.add_stat(temp_stat_while_moving[0], temp_stat_while_moving[1])
+				TempStats.emit_updated()
 		
 		reset_weapons_cd()
 	elif moving_bonuses_applied and movement.x == 0 and movement.y == 0:
@@ -77,6 +72,7 @@ func check_moving_stats(movement:Vector2)->void :
 		for temp_stat_while_moving in RunData.effects["temp_stats_while_moving"]:
 			if not _is_special_tmp_status(temp_stat_while_moving[0]):
 				TempStats.remove_stat(temp_stat_while_moving[0], temp_stat_while_moving[1])
+				TempStats.emit_updated()
 		
 		reset_weapons_cd()
 
@@ -85,6 +81,7 @@ func _remove_safely_moving_bonus()->void:
 		if value_safely_moving_boosted[stat_key] != 0:
 			TempStats.remove_stat(stat_key, value_safely_moving_boosted[stat_key])
 			value_safely_moving_boosted[stat_key] = 0
+			TempStats.emit_updated()
 
 func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_applied:bool = true, custom_sound:Resource = null, base_effect_scale:float = 1.0, bypass_invincibility:bool = false)->Array:
 	var dmg_taken = .take_damage(value, hitbox, dodgeable, armor_applied, custom_sound, base_effect_scale, bypass_invincibility)
@@ -128,6 +125,7 @@ func _physics_process(delta)->void :
 		for i in idx_remove:
 			TempStats.remove_stat(stat, value_buff_boosted[stat][i][0])
 			value_buff_boosted[stat].remove(i)
+			TempStats.emit_updated()
 
 #func _on_ItemAttractArea_area_entered(area:Area2D)->void :
 #	var is_heal = area is Consumable
@@ -142,3 +140,4 @@ func on_buff_effect(stat:String, value:int, last:int)->void:
 		value_buff_boosted[stat] = []
 	value_buff_boosted[stat].push_back([value, last])
 	TempStats.add_stat(stat, value)
+	TempStats.emit_updated()
