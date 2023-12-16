@@ -1,6 +1,7 @@
 keys,en,zh
 EFFECT_ACCUM_STAT_SPEED,Gain {0} speed per second while moving until take damage,移动时每秒获取{0}速度直至受伤
 EFFECT_ACCUM_STAT_ARMOR,Gain {0} armor per second while moving until take damage,移动时每秒获取{0}护甲直至受伤
+EFFECT_ACCUM_STAT_DMG,Gain {0} damage per second while moving until take damage,移动时每秒获取{0}伤害直至受伤
 EFFECT_ACCUM_EXPLOSION_SIZE,Gain {0} explosion size per second while moving until take damage,移动时每秒获取{0}爆炸范围直至受伤
 EFFECT_EXPLOSION_ELIMINATE_BULLETS,Explosion will eliminate the enemy's bullets,爆炸会消除敌人子弹
 EFFECT_BLADE_STORM,Your attack mode is Blade Storm,攻击方式为剑刃风暴
