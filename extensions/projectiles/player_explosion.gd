@@ -2,7 +2,7 @@ extends "res://projectiles//player_explosion.gd"
 
 func _ready():
 	._ready()
-	if RunData.effects["explosion_eliminate_bullets"].size() > 0:
+	if RunData.get_player_effect("explosion_eliminate_bullets", player_index).size() > 0:
 		_hitbox.monitoring = true
 		_hitbox.collision_mask = 0b10000
 		_hitbox.connect("area_entered",self,"_on_Hitbox_area_entered")

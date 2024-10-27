@@ -2,7 +2,7 @@ extends "res://entities/units/player/weapons_container.gd"
 
 
 func update_weapons_positions(weapons:Array)->void :
-	if RunData.effects["blade_storm"].size() > 0:
+	if RunData.get_player_effect("blade_storm", get_parent().player_index).size() > 0:
 		var attack_range = 0#max(Utils.get_stat("stat_range") * 1.0 / 100 + 1.2, 0.5)
 		for weapon in weapons:
 			attack_range += weapon.current_stats.max_range

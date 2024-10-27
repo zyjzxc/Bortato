@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://effects/items/stat_with_max_effect.gd" type="Script" id=1]
+[ext_resource path="res://items/global/effect.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
@@ -8,7 +8,6 @@ key = "running_accum_explosion_size"
 text_key = "EFFECT_ACCUM_EXPLOSION_SIZE"
 value = 35
 custom_key = "temp_stats_while_moving"
-storage_method = 0
+storage_method = 1
 effect_sign = 3
 custom_args = [  ]
-max_value = 0

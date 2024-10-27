@@ -6,8 +6,6 @@ const MYMOD_LOG = "Jay-Rock" # ! Change `MODNAME` to your actual mod's name
 
 var dir = ""
 
-var _consumables_pickde_this_wave = 0
-
 # Extensions
 # =============================================================================
 
@@ -25,18 +23,11 @@ func _ready()->void:
 	# ! finished
 	_modname_my_custom_edit_2()
 
-
-func _on_EntitySpawner_player_spawned(player:Player)->void :
-	._on_EntitySpawner_player_spawned(player)
-	var _error_buff_effect = RunData.connect("buff_effect", player, "on_buff_effect")
-
-func on_consumable_picked_up(consumable:Node)->void :
-	.on_consumable_picked_up(consumable)
-	if not _cleaning_up and RunData.effects["buff_pick_up_consumable"].size() > 0:
-		_consumables_pickde_this_wave += 1
-		for effect in RunData.effects["buff_pick_up_consumable"]:
-			var value = max(1, effect[1] / _consumables_pickde_this_wave)
-			RunData.emit_signal("buff_effect", effect[0], effect[1], effect[2])
+func on_consumable_picked_up(consumable:Node, player_index)->void :
+	.on_consumable_picked_up(consumable, player_index)
+	if not _cleaning_up and RunData.get_player_effect("buff_pick_up_consumable", player_index).size() > 0:
+		for effect in RunData.get_player_effect("buff_pick_up_consumable", player_index):
+			RunData.players_data[player_index].emit_signal("buff_effect", effect[0], effect[1], 2)
 
 
 # Custom

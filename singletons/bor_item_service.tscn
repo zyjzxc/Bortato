@@ -7,7 +7,6 @@
 [ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Downpour/jay_downpour_data.tres" type="Resource" id=5]
 [ext_resource path="res://mods-unpacked/Jay-Rock/items/characters/Fruit/jay_fruit_data.tres" type="Resource" id=6]
 
-
 [node name="BorItemService" type="Node"]
 script = ExtResource( 1 )
 characters = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]

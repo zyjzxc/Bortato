@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://effects/items/stat_with_max_effect.gd" type="Script" id=1]
+[ext_resource path="res://items/global/effect.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
@@ -8,7 +8,6 @@ key = "stat_attack_speed"
 text_key = "effect_buff_pick_up_consumable"
 value = 500
 custom_key = "buff_pick_up_consumable"
-storage_method = 0
+storage_method = 4
 effect_sign = 3
 custom_args = [  ]
-max_value = 2

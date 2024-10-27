@@ -19,4 +19,5 @@ scale = 1.0
 base_smoke_amount = 20
 sound_db_mod = -15
 stats = ExtResource( 1 )
-tracking_text = ""
+tracking_key = ""
+scale_with_missing_health = false

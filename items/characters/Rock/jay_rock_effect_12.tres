@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-key = ""
+key = "explosion_eliminate_bullets"
 text_key = "EFFECT_EXPLOSION_ELIMINATE_BULLETS"
 value = 0
 custom_key = "explosion_eliminate_bullets"
-storage_method = 1
+storage_method = 3
 effect_sign = 3
 custom_args = [  ]

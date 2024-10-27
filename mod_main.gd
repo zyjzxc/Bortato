@@ -7,7 +7,7 @@ var dir = ""
 var ext_dir = ""
 var trans_dir = ""
 
-func _init(modLoader = ModLoader):
+func _init():
 	ModLoaderLog.info("Init", MYMODNAME_LOG)
 	dir = ModLoaderMod.get_unpacked_dir() + MOD_DIR
 	ext_dir = dir + "extensions/"
@@ -15,17 +15,20 @@ func _init(modLoader = ModLoader):
 
 	# Add extensions
 	ModLoaderMod.install_script_extension(ext_dir + "main.gd")
-	ModLoaderMod.install_script_extension(ext_dir + "entities/units/enemies/enemy.gd")
-	ModLoaderMod.install_script_extension(ext_dir + "entities/units/player/player.gd")
-	ModLoaderMod.install_script_extension(ext_dir + "ui/menus/run/character_selection.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/weapon_service.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/run_data.gd")
+	# ModLoaderMod.install_script_extension(ext_dir + "singletons/player_run_data.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/text.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "projectiles/player_explosion.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "entities/units/player/weapons_container.gd")
+	# ModLoaderMod.install_script_extension(ext_dir + "entities/units/player/player.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/progress_data.gd")
 	var new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/weapons/melee/melee_weapon.gd")
 	new_potato.take_over_path("res://weapons/melee/melee_weapon.gd")
+	new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/entities/units/player/player.gd")
+	new_potato.take_over_path("res://entities/units/player/player.gd")
+	new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/singletons/player_run_data.gd")
+	new_potato.take_over_path("res://singletons/player_run_data.gd")
 	new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/weapons/ranged/ranged_weapon.gd")
 	new_potato.take_over_path("res://weapons/ranged/ranged_weapon.gd")
 	new_potato = preload("res://mods-unpacked/Jay-Rock/extensions/effects/items/item_exploding_effect.gd")
